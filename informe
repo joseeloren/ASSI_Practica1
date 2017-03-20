@@ -1,0 +1,8 @@
+Práctica 1
+1.1.
+Estudiar documentacion OK
+Crear archivo legible OK
+Cifrar con 5 algoritmos OK
+Descifrarlos y comprobar el resultado OK
+Explicar el tamano de los ficheros cifrados.
+AES - Coge el fichero, le mete la sal delante y lo cifra en bloques de 16 bytes. Por tanto, si nuestro fichero tiene 265 bytes y se le meten 16 de sal, queda con un tamano de 281 bytes, y como debe ser multiplo de 16 se le incluyen 7 mas, siento en total 288. Si lo dividimos por 16 obtenemos 18 bytes que tiene el fichero cifrado.
