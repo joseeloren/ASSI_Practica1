@@ -8,7 +8,7 @@ echo
 
 #Cifrar con CINCO algoritmos simétricos
 echo 'Cifrado con AES:'
-openssl enc -e -aes-256-cbc -in texto_legible -out texto_cifrado.aes -k 12345 -salt -a -p
+openssl enc -e -aes-256-cbc -in texto_legible -out texto_cifrado.aes -k 123456 -salt -a -p
 echo Texto cifrado AES:
 cat texto_cifrado.aes
 echo
@@ -36,7 +36,7 @@ echo
 
 #Descifrar con los CINCO algoritmos simétricos
 echo 'Descifrado con AES:'
-openssl enc -d -aes-256-cbc -in texto_cifrado.aes -out texto_descifrado.aes -k 12345 -a
+openssl enc -d -aes-256-cbc -in texto_cifrado.aes -out texto_descifrado.aes -k 123456 -a
 echo 'Descifrado con TDES:'
 openssl enc -d -des-ede3-cbc -in texto_cifrado.tdes -out texto_descifrado.tdes -k 12345 -a
 echo 'Descifrado con CAMELLIA:'
@@ -47,13 +47,13 @@ echo 'Descifrado con RC4 (cifrador en flujo):'
 openssl enc -d -rc4 -in texto_cifrado.rc4 -out texto_descifrado.rc4 -k 12345 -a
 
 #Comprobamos la igualdad de los ficheros
-echo 'Compobración de integridad AES':
+echo 'Comprobración de integridad AES':
 diff texto_legible texto_descifrado.aes
-echo 'Compobración de integridad TDES':
+echo 'Comprobración de integridad TDES':
 diff texto_legible texto_descifrado.tdes
-echo 'Compobración de integridad CAMELLIA':
+echo 'Comprobración de integridad CAMELLIA':
 diff texto_legible texto_descifrado.camellia
-echo 'Compobración de integridad RC2':
+echo 'Comprobración de integridad RC2':
 diff texto_legible texto_descifrado.rc2
-echo 'Compobración de integridad RC4':
+echo 'Comprobración de integridad RC4':
 diff texto_legible texto_descifrado.rc4
