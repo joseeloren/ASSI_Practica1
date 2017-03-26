@@ -10,4 +10,9 @@ Evitamos, en primer lugar, que el fichero esté codificado en base64, para evita
 
 En lo que respecta al cifrador en flujo, al no usar bloques sino cifrar todo el conjunto, al restar la sal de el fichero en binario (sin base64), obtenemos el tamaño del fichero origianl. 281-16=265.
 
-Explicar la gestión de contraseñas:
+Explicar la gestion de contrasenas:
+El estandar PKCS #5 viene recogido en la RFC 2898. Segun RSA Security, operacinnn de cifrado en su version v1.5, no siendo demasiado distinta en su version 2.0, se basa en generar una sal aleatoria , crear un hash con la contrasena para crear la clave (a traves de la sal) el vector de inializacion, rellenar el mensaje y cifrar. El descifrado sufre un proceso similar, en sentido contrario como era de esperar. Cabe destacar, a modo de interes, que los cambios entre la version 1.5 y 2.0 son el algoritmo de para hacer el hash, siendo este sha1 y para cifrar, ciento este rc2 en lugar de des, ambos utilizando cbc como cifrador de bloques, por ello la necesidad del vector de inicializacion.
+https://security.stackexchange.com/questions/6058/is-real-salt-the-same-as-initialization-vectors
+
+https://es.wikipedia.org/wiki/Modos_de_operaci%C3%B3n_de_una_unidad_de_cifrado_por_bloques
+
