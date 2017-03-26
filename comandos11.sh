@@ -66,3 +66,11 @@ key=$(cat salida_cifrado.txt | cut -d= -f2 | head -2 | tail -1)
 dd if="texto_cifrado_con_sal.aes" of="texto_cifrado_sin_sal.aes" bs=1 skip=16
 openssl enc -d -aes-256-cbc -in texto_cifrado_sin_sal.aes -out texto_legible_sal.aes -K $key -iv $iv
 cat texto_legible_sal.aes
+
+#Imagen ecb
+dd if='imagen_original.bmp' of='imagen_original_sin_cabecera' bs=1 skip=70
+openssl enc -e -aes-256-ecb -in imagen_original_sin_cabecera -out imagen_original_sin_cabecera.aes -k 123456 -nosalt
+dd if='imagen_original.bmp' of='imagen_original_ecb.bmp' bs=1 count=70
+dd if='imagen_original_sin_cabecera.aes' of='imagen_original_ecb.bmp' bs=1 oflag=append conv=notrunc
+rm imagen_original_sin_cabecera
+rm imagen_original_sin_cabecera.aes
