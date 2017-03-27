@@ -15,8 +15,11 @@ openssl dgst -sha512 texto_legible_modificado
 
 
 #Crear clave privada RSA
-#openssl genrsa -aes256 -out clave_privada_jlorenzo.pem 2048 
-#openssl rsa -in clave_privada_jlorenzo.pem -out clave_publica_jlorenzo.pem -pubout -outform PEM
+openssl genrsa -aes256 -out clave_privada_jlorenzo.pem 2048 
+openssl rsa -in clave_privada_jlorenzo.pem -out clave_publica_jlorenzo.pem -pubout -outform PEM
+
+openssl genrsa -aes256 -out clave_privada_receptor.pem 2048 
+openssl rsa -in clave_privada_receptor.pem -out clave_publica_receptor.pem -pubout -outform PEM
 
 #PEM To DER y viceversa
 #openssl rsa -outform DER -inform PEM -in clave_privada_jlorenzo.pem -out clave_privada_jlorenzo.der
